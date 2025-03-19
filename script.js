@@ -38,11 +38,11 @@ function deleteApiUsers100(){
                     deleteApiUser(Number(tableData1.textContent));
                  });
 
-                 editbtn.addEventListener("click", function(){
-                    const numberUser = element.id
-                    editApiUser(numberUser);
-                    // console.log(numberUser)
-                 })
+                //  editbtn.addEventListener("click", function(){
+                //     const numberUser = element.id
+                //     editApiUser(numberUser);
+                //     // console.log(numberUser)
+                //  })
     
                 tableRow.append(tableData1);
                 tableRow.append(tableData2);
@@ -67,26 +67,28 @@ function deleteApiUser(num){
     dele.open('DELETE', `https://mimic-server-api.vercel.app/users/${num}`)
     dele.onload = () => {
         deleteApiUsers100();
-        
-    //    alert('data deleted successfully');
     }
     dele.send();
 }
 
 
-function editApiUser(num){
-    let submitbtn = document.getElementById('submitbutton');
-        submitbtn.addEventListener('click', function(){
-            // console.log(num)
-            let flag = false;
-            const edit = new XMLHttpRequest()
-            edit.open('PUT', `https://mimic-server-api.vercel.app/users/${num}`)
-            edit.onload = () => {
-                if(num===response.id){
-                    flag = true;
-                    alert('data deleted successfully')
-                }
-            }
-            edit.send();
-})
-}
+// function editApiUser(num){
+//     let submitbtn = document.getElementById('submitbutton');
+//         submitbtn.addEventListener('click', function(){
+//             // console.log(num)
+//             let flag = true;
+//             const edit = new XMLHttpRequest()
+//             edit.open('PUT', `https://mimic-server-api.vercel.app/users/${num}`)
+//             edit.onload = () => {
+//                 if(num===response.id){
+//                     console.log(response.id)
+//                     alert('data deleted successfully')
+//                     flag = !false;
+//                 }else{
+//                     alert('data deleted successfully')
+//                     flag = !false;
+//                 }
+//             }
+//             edit.send();
+// })
+// }
